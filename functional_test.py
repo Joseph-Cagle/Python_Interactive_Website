@@ -9,13 +9,12 @@ class FunctionalTest(unittest.TestCase):
         self.browser = webdriver.Firefox()
         self.browser.get('http://127.0.0.1:8000')
     
-    def tearDown(self):
-        self.browser.quit()
+   # def tearDown(self):
+     #   self.browser.quit()
 
     def testTitle(self):
-        self.assertIn('Django', self.browser.title, 'Wrong Title')
+        self.assertIn('Fallout Adventure', self.browser.title, 'Wrong Title')
 
 
 if __name__ =='__main__':
     unittest.main()
-    

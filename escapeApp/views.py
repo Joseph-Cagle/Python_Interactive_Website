@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import NameForm
 
 # Create your views here.
 def homePage(request):
-    html = "<h1>Welcome Vault Dweller, what is your name?</h1>"
-    return HttpResponse(html)
+    form = NameForm()
+    context = {'form':form}
+    return render(request, 'home.html', context)
