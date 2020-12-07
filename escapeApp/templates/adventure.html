@@ -1,0 +1,25 @@
+
+    <head>
+        <title>Fallout Adventure</title>
+    </head>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Welcome, {{ current_player }}!</h2>
+            <h3>And so it begins...</h3>
+
+            <p>The sun shines in your eyes, you take in the scenery of the capitol wasteland.</p>
+            <p>The journey ahead includes three paths, left, straight or right? which do you choose?</p>
+            
+
+            <form action="{% url 'adventure' %}" method="POST">{% csrf_token %}
+                <label for="answer">Which way do you want to travel? </label>
+                <input id="answer" type="text" name="answer" value="{{ current_answer }}">
+                <button type="submit" class="save btn btn-primary">Submit</button>
+                <input id="direction" type="hidden" name="direction" value="3_paths">
+                <input id="current_player" type="hidden" name="current_player" value="{{ current_player}}">
+            </form>
+
+        </div>
+    </div>

@@ -10,6 +10,13 @@ def homePage(request):
     context = {'form':form}
     return render(request, 'home.html', context)
 
-def index(request):
-    players = Player.objects.filter(game_end__lte=timezone.now()).order_by("game_end")
-    return render(request, 'myfirstgame/index.html', {'players':players})
+#def index(request):
+ #   players = Player.objects.filter(game_end__lte=timezone.now()).order_by("game_end")
+  #  return render(request, 'myfirstgame/index.html', {'players':players})
+
+def playPage(request):
+    
+    #code to add here
+
+    return render(request, "adventure.html")
+    

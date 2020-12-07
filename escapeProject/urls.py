@@ -19,6 +19,7 @@ from escapeApp import views
 
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
-    url(r'^$', views.homePage, name='home')
+    url(r'^$', views.homePage, name='home'),
     #redirect root to page we want to create
+    url(r'^adventure/$', views.playPage, name='adventure')
 ]

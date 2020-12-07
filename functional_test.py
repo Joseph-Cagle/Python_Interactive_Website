@@ -1,5 +1,7 @@
 from selenium import webdriver
 import unittest
+import time
+from selenium.webdriver.common.keys import Keys
 
 #make sure website and server are working
 #big picture testing 

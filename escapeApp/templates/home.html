@@ -6,9 +6,9 @@
     </head>
     <body>
         <h2>Hello Vault Dweller, and welcome to your brand new adventure!</h2>
-        <p>You have just escaped vault 101 and are looking for your dad, who left without warning.</p>
-        <p>But before you head off on your adventure vault dweller, we need to know your name.</p>
-        <form action="" method="post">
+        <h3>You have just escaped vault 101 and are looking for your dad, who left without warning.</h3>
+        <p>But before you head off on your adventure vault dweller, we need to know your name</p>
+        <form method="POST" class="name-form">{% csrf_token %}
             {{form}}
             <input type="submit" value="OK">
         </form>
