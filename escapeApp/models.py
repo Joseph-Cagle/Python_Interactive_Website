@@ -14,5 +14,3 @@ class Player(models.Model):
     #    self.game_end = timezone.now()
      #   self.save()
 
-    def __str__(self):
-        return self.name

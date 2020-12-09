@@ -21,5 +21,9 @@ urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     url(r'^$', views.homePage, name='home'),
     #redirect root to page we want to create
-    url(r'^adventure/$', views.playPage, name='adventure')
+    url(r'^adventure/$', views.playPage, name='adventure'),
+    #url(r'^character.html$', views.character_page, name='character')\
+    url(r'^character/$', views.character_page, name='character'),
+    url(r'^character/home.html$', views.homePage, name='character'),
+    url(r'^adventure/home.html$', views.homePage, name='character')
 ]
