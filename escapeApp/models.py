@@ -8,9 +8,10 @@ class Player(models.Model):
     #score = models.IntegerField(
          #   blank=True, null=True)
     #game_end = models.DateTimeField(
-     #       blank=True, null=True)     all green fields to be implemented at a later date
+     #       blank=True, null=True)     all green fields
 
    # def gameover(self):
     #    self.game_end = timezone.now()
      #   self.save()
 
+  

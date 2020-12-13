@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.urls import resolve
 from escapeApp.views import homePage
-from escapeApp.views import playPage
+from escapeApp.views import adventurePage
+from escapeApp.views import character_page
 from django.http import HttpRequest 
 from django.template.loader import render_to_string
 from selenium import webdriver
@@ -26,31 +27,49 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         response = homePage(request) # all the HTML in page
         html = response.content.decode('utf8') # convert into readable stuff
-        self.assertIn('<h2>Hello Vault Dweller, and welcome to your brand new adventure!</h2>', html, 'H2 contents fail')
-        self.assertIn('<h3>You have just escaped vault 101 and are looking for your dad, who left without warning.</h3>', html, '<h3> contents fail')
-       # self.assertIn('<p>But before you head off on your adventure vault dweller, we need to know your name.</p>', html, '<p> contents fail') test does not like <p> tag for some reason
-     
-    def testMenuLinks(self):
-        request = HttpRequest()
-        response = homePage(request)
-        html = response.content.decode('utf8')
-        self.assertIn('href="lore.html"', html, 'Link to lore.html not found')
+    
 
     def test_uses_home_template(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
 
+
+    def testMenuLinks(self): # new test for 12/12
+        request = HttpRequest()
+        response = homePage(request)
+        html = response.content.decode('utf8')
+        self.assertIn('href="home.html"', html, 'Link to home.html not found')
+
 class advennturePageTest1(TestCase):
     def testAdventure(self):
         foundAdventure = resolve('/adventure/')#adventurepage
-        self.assertEqual(foundAdventure.func,playPage, "play page resolves incorrectly")
+        self.assertEqual(foundAdventure.func,adventurePage, "play page resolves incorrectly")
     
     def testAdventureUsesTemplate(self):
         response = self.client.get('/adventure/')
         self.assertTemplateUsed(response, 'adventure.html')
-      
 
+    def testImageOnLore(self):# new test for 12/12
+        request = HttpRequest()
+        response = character_page(request)
+        html = response.content.decode('utf8')
+        self.assertIn('src="/static/vault.jpg', html, 'vault image not found')
 
+class characterPageTest(TestCase):
+    def testChar(self):
+        foundchar = resolve('/character/')#adventurepage
+        self.assertEqual(foundchar.func,character_page, "play page resolves incorrectly")
+
+    def testAdventureUsesTemplate(self):
+        response = self.client.get('/character/')
+        self.assertTemplateUsed(response, 'character.html')
+
+    def testImageOnLore(self):# new test for 12/12
+        request = HttpRequest()
+        response = character_page(request)
+        html = response.content.decode('utf8')
+        self.assertIn('src="/static/fo3.jpg', html, 'fo3 image not found')
+        
 
 
 
