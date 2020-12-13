@@ -40,6 +40,13 @@ class HomePageTest(TestCase):
         html = response.content.decode('utf8')
         self.assertIn('href="home.html"', html, 'Link to home.html not found')
 
+    def testImageOnHome(self):# new test for 12/12
+        request = HttpRequest()
+        response = homePage(request)
+        html = response.content.decode('utf8')
+        self.assertIn('src="/static/wander.jpg', html, 'vault image not found')
+
+
 class advennturePageTest1(TestCase):
     def testAdventure(self):
         foundAdventure = resolve('/adventure/')#adventurepage
@@ -49,11 +56,11 @@ class advennturePageTest1(TestCase):
         response = self.client.get('/adventure/')
         self.assertTemplateUsed(response, 'adventure.html')
 
-    def testImageOnLore(self):# new test for 12/12
+    def testImageOnAdventure(self):# new test for 12/12
         request = HttpRequest()
-        response = character_page(request)
+        response = adventurePage(request)
         html = response.content.decode('utf8')
-        self.assertIn('src="/static/vault.jpg', html, 'vault image not found')
+        self.assertIn('src="/static/valut.jpg', html, 'vault image not found')
 
 class characterPageTest(TestCase):
     def testChar(self):
@@ -64,7 +71,7 @@ class characterPageTest(TestCase):
         response = self.client.get('/character/')
         self.assertTemplateUsed(response, 'character.html')
 
-    def testImageOnLore(self):# new test for 12/12
+    def testImageOnCharacter(self):# new test for 12/12
         request = HttpRequest()
         response = character_page(request)
         html = response.content.decode('utf8')

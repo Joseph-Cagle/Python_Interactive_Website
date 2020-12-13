@@ -1,4 +1,4 @@
-
+{% load static %}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -25,12 +25,27 @@
         </div>
     </nav>
 
-    <h1>Welcome to A Fallout 3 interactive adventure!</h1>
-    <h2>You are about to embark on a recreation of Fallout3 directly after leaving vault 101. Click the button bellow to Make you character.</h2>
-    <form action="http://127.0.0.1:8000/character/">
-        <input type="submit" value="create your character" />
-    </form>
     
+    <div class="container">
+        <div class="row">
+          <div class="col-lg">
+            <h1>Welcome to A Fallout 3 interactive adventure!</h1>
+            <img src="{% static 'wander.jpg' %}" alt ="wanderer" title ="wanderer">>
+          </div>
+        </div>
+         <div>
+          <div class="col-lg">
+            <h3>You are about to embark on a recreation of Fallout3 directly after leaving vault 101. Click the button bellow to Make you character.</h3>
+            <form action="http://127.0.0.1:8000/character/">
+                <input id="submit" type="submit" value="create your character" />
+            </form>
+          </div>
+         
+         
+      </div>
+
+    
+   
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
