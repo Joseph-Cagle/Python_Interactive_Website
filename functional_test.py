@@ -18,10 +18,6 @@ class FunctionalTest(unittest.TestCase):
         self.assertIn('Fallout Adventure', self.browser.title, 'Wrong Title')
 
 
-    def testLink(self):
-        self.browser.get('http://localhost:8000')
-        lLink = self.browser.find_element_by_id("submit").click()
-        self.assertIn('Create a character!', self.browser.title, 'Lore Link did not take to correct page')
         
 
     def testCharCreate(self):#new test for 12/12 
@@ -29,7 +25,7 @@ class FunctionalTest(unittest.TestCase):
         self.browser.find_element_by_id("name").send_keys("joe")
         self.browser.find_element_by_id("submit").click()
 
-        self.assertIn('joe', self.browser.title, 'namo not in title')
+        self.assertIn('joe', self.browser.title, 'name not in title')
         
 
     

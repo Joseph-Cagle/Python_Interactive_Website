@@ -7,25 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{% static 'solar.css' %}">
     <title>Create a character!</title>
   </head>
   <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="home.html">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="home.html">Home<span class="sr-only"></span></a>
+              </li>
+            
+          </ul>
+      </div>
+  </nav>
     
     <!-- insert pretty div stuff here, maybe laod a picture.. import static for images. 1:05 inlecturee-->
-    <div calss="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <img src="{% static 'fo3.jpg' %}" alt ="fallout 3" title ="fallout3">
-            </div>
-            <div class="col-mid-10"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg">
+          <h1>Welcome to A Fallout 3 interactive adventure!</h1>
+          <img src="{% static 'fo3.jpg' %}" alt ="wanderer" title ="wanderer">>
         </div>
-    </div>
-<br>
+      </div>
+       <div>
+        <div class="col-lg">
+          <h3>Please enter your characters name below and lets get started</h3>
+          
+        </div>
+       
+       
+    
 
-    <h1>Create your character</h1>
-    <div class="col-md-10">
     <form method = POST>
         {% csrf_token %}
         <div class="mb-3">
