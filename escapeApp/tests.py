@@ -46,6 +46,8 @@ class HomePageTest(TestCase):
         html = response.content.decode('utf8')
         self.assertIn('src="/static/wander.jpg', html, 'vault image not found')
 
+        
+
 
 class advennturePageTest1(TestCase):
     def testAdventure(self):

@@ -2,6 +2,7 @@ from selenium import webdriver
 import unittest
 import time
 from selenium.webdriver.common.keys import Keys
+import requests
 
 #make sure website and server are working
 #big picture testing 
@@ -26,6 +27,15 @@ class FunctionalTest(unittest.TestCase):
         self.browser.find_element_by_id("submit").click()
 
         self.assertIn('joe', self.browser.title, 'name not in title')
+
+    def testImageLoads(self):#new test for 12/15
+        resp = requests.head('http//localhost:8000/static/wander.jpg')
+        self.assertEqual(200, resp.status_code, 'wander.jpg does not load')
+    
+    def testCssLoads(self): #new test for 12/15
+        resp = requests.head('http//localhost:8000/static/solar.css')
+        self.assertEqual(200, resp.status_code, 'solar.css does not load')
+    
         
 
     

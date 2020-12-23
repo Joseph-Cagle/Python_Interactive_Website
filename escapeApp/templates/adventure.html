@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row">
               <div class="col-md">
-                <h2 >Welcome, {{ thePlayer.name }} !</h2>
+                <h2>Welcome, {{ current_player }}!</h2>
                 <h3>And so it begins...</h3>
     
                 <p>The sun shines in your eyes, you take in the scenery of the capitol wasteland.</p>
@@ -39,12 +39,12 @@
                 
                 
     
-                <form action="{% url 'adventure' %}" method="POST">{% csrf_token %}
-                    <label for="answer">Which way do you want to travel? </label>
-                    <input id="answer" type="text" name="answer" value="{{ current_answer }}">
+                <form  method="POST">{% csrf_token %}
+                    <label for="direction">Which way do you want to travel? </label>
+                    <input id="direction" type="text" name="direction" value="{{ current_answer }}">
                     <button type="submit" class="save btn btn-primary">Submit</button>
-                    <input id="direction" type="hidden" name="direction" value="3_paths">
-                    <input id="current_player" type="hidden" name="current_player" value="{{ current_player}}">
+                    <input id="location" type="hidden" name="location" value="start">
+                   
                 </form>
               </div>
              
@@ -53,7 +53,8 @@
               </div>
             </div>
           </div>
-
+          
+         
 
 
    

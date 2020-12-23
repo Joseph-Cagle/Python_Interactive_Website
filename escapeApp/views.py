@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpRequest
-from .forms import NameForm
+from .forms import NameForm, AdventureForm
 from .models import Player
 from pytz import timezone
 
@@ -15,18 +15,35 @@ def homePage(request):
   #  return render(request, 'myfirstgame/index.html', {'players':players})
 
 def character_page(request):
-    thePlayer = Player()
+    context = {}
+    current_player = None
+   # thePlayer = Player()
     if request.method =='POST':
-        thePlayer.name=request.POST.get("name")
-        #thePlayer = Player('',request.POST.get("name")) # '' acounts for autonumber primary key
-        return render(request, 'adventure.html', {'thePlayer' : thePlayer})
-        #we need to migrate to this is at 1 hour 11 minutes in
+      form = NameForm(request.POST)
+      if form.is_valid():
+        player = form.save()
+        context['current_player'] = player.name
+        return render(request, 'adventure.html')
     else:
-       return render(request, 'character.html')  
+        form = NameForm()
+    context['form'] = form
+
+    return render(request, 'character.html')   
 
 def adventurePage(request):
+    context = {}
     
-    #code to add here
+    if request.method == "POST":
+        form = AdventureForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            print(data)
 
-    return render(request, "adventure.html")
+            # Get the data from form
+            
+            current_location = data.get("location")
+            answer = data.get("answer")
+
+  
+   
     
