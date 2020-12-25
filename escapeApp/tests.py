@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import resolve
 from escapeApp.views import homePage
 from escapeApp.views import adventurePage
+from escapeApp.views import adventureRight
 from escapeApp.views import character_page
 from django.http import HttpRequest 
 from django.template.loader import render_to_string
@@ -78,10 +79,24 @@ class characterPageTest(TestCase):
         response = character_page(request)
         html = response.content.decode('utf8')
         self.assertIn('src="/static/fo3.jpg', html, 'fo3 image not found')
+
+class PlayerChoosesRightFromVault(self):#new tests for 12/24
+
+    def testAdvRightUsesBaseRightTemplate(self):
+        response = self.client.get('/adventureRight/')
+        self.assertTemplateUsed(response, 'baseRight.html')
+
+    def testImageOnPlayerChoosesRight(self):
+        request = HttpRequest()
+        response = character_page(request)
+        html = response.content.decode('utf8')
+        self.assertIn('src="/static/doggo.jpg', html, 'crazzy doggo.jpg not found, bark')
+
+        
         
 
 
 
-#check for player name 
+
 
 

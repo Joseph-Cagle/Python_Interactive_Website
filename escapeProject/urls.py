@@ -18,12 +18,14 @@ from django.contrib import admin
 from escapeApp import views 
 
 urlpatterns = [
-    #url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^$', views.homePage, name='home'),
     #redirect root to page we want to create
     url(r'^adventure/$', views.adventurePage, name='adventure'),
     url(r'^character.html$', views.character_page, name='character'),
     url(r'^character/$', views.character_page, name='character'),
     url(r'^character/home.html$', views.homePage, name='home'),
-    url(r'^adventure/home.html$', views.homePage, name='home')
+    url(r'^adventure/home.html$', views.homePage, name='home'),
+    url(r'^adventureRight/$', views.adventureRight, name='Right'),
+    url(r'^adventureRight/home.html$', views.homePage, name='home')
 ]

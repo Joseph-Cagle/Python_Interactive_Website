@@ -22,8 +22,9 @@ def character_page(request):
       form = NameForm(request.POST)
       if form.is_valid():
         player = form.save()
+        player.save()
         context['current_player'] = player.name
-        return render(request, 'adventure.html')
+        return render(request, 'adventure.html', context)
     else:
         form = NameForm()
     context['form'] = form
@@ -38,12 +39,14 @@ def adventurePage(request):
         if form.is_valid():
             data = form.cleaned_data
             print(data)
-
-            # Get the data from form
-            
             current_location = data.get("location")
             answer = data.get("answer")
 
+        
+
+
   
-   
+def adventureRight(request):
+
+    return render(request, 'playerChoosesRight.html')
     

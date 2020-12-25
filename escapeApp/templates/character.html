@@ -45,8 +45,7 @@
        
     
 
-    <form method = POST>
-        {% csrf_token %}
+    <form method = POST class="player-form">{% csrf_token %}
         {{ form.as_p }}
         <div class="mb-3">
             <label for="name" class="name-form">Character Name</label>

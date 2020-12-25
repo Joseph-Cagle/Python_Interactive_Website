@@ -6,8 +6,7 @@ from django.utils import timezone
 class Player(models.Model):
     name = models.CharField(max_length=200)
    
-    game_end = models.DateTimeField(
-            blank=True, null=True)
+    
 
     def gameover(self):
         self.game_end = timezone.now()

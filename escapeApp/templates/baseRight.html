@@ -7,9 +7,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
   
       <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="{% static 'solar.css' %}">
-      <title>Fallout Adventure - {{ thePlayer.name }}</title>
+      <link rel="stylesheet" href="{% static 'solarRight.css' %}">
+      <title>Fallout Adventure- {% block title_text %}{% endblock %}</title>
     </head>
+   
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="home.html">Navbar</a>
@@ -26,36 +27,19 @@
                 </ul>
             </div>
         </nav>
-
+     <h1>{% block header_text %}{% endblock %}</h1>
 
         <div class="container">
             <div class="row">
               <div class="col-md">
-                <h2 id="welcome">Welcome, {{ current_player }}!</h2>
-                <h3>And so it begins...</h3>
-    
-                <p>The sun shines in your eyes, you take in the scenery of the capitol wasteland.</p>
-                <p>The journey ahead includes three paths, left, straight or right? which do you choose?</p>
+               
+                {% block body_text %}{% endblock %}
                 
-                <form action="http://127.0.0.1:8000/adventureRight">
-                  <input id="submit" type="submit" class="btn btn-primary" value="Head to the right" />
-              </form>
-              <hr/>
-              <p>This button doesnt not do anything yet</p>
-              <form action="">
-                <input id="submit" type="submit" class="btn btn-primary" value="Head to the left" />
-            </form>
-            <hr/>
-            <p>This button doesnt not do anything yet</p>
-            <form action="">
-              <input id="submit" type="submit" class="btn btn-primary" value="Go straight forward" />
-          </form>
-          <hr/>
-             
+    
               </div>
              
               <div class="col-sm">
-                <img src="{% static 'valut.jpg' %}" alt ="leaving the vault" title ="leaving the vault">
+                <img src="{% static 'doggo.jpg' %}" alt ="leaving the vault" title ="leaving the vault">
               </div>
             </div>
           </div>
