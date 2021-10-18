@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from escapeApp import views 
 
+#from django.urls import path, include
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.homePage, name='home'),
@@ -27,5 +29,17 @@ urlpatterns = [
     url(r'^character/home.html$', views.homePage, name='home'),
     url(r'^adventure/home.html$', views.homePage, name='home'),
     url(r'^adventureRight/$', views.adventureRight, name='Right'),
-    url(r'^adventureRight/home.html$', views.homePage, name='home')
+    url(r'^adventureRight/home.html$', views.homePage, name='home'),
+    url(r'^adventureLeft/$', views.adventureLeft, name='Left'),
+    url(r'^adventureLeft/home.html$', views.homePage, name='home'),
+     url(r'^adventureStraight/$', views.adventureStraight, name='straight'),
+    url(r'^adventureStraight/home.html$', views.homePage, name='home'),
+    url(r'^backAtVault/$', views.backToVault, name='back'),
+    url(r'^backAtVault/home.html$', views.homePage, name='home'),
+    url(r'^backAtVault/straight.html$', views.adventureStraight, name='straight'),
+    #url('',include("django.contrib.auth.urls")),
+    #url("register/", views.register, name ='register')
+    url(r'^register', views.register, name='register'),
+    
+   
 ]
